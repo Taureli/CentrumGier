@@ -2,6 +2,38 @@
 <div class="container">
 
     <div class="row row-offcanvas row-offcanvas-right">
+	
+	<?php
+	if (isset($_GET['er'])) {
+
+            switch ($_GET['er']) {
+                case 10:
+                    echo '
+                        <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Błąd!</strong> Brak dostępu!
+                        </div>
+                        ';
+                    break;
+				case 11:
+                    echo '
+                        <div class="alert alert-warning alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Zestaw został usunięty!</strong>
+                        </div>
+                        ';
+                    break;
+				case 12:
+                    echo '
+                        <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Sukces!</strong> Stworzono nowy zestaw pytań!
+                        </div>
+                        ';
+                    break;
+			}
+	}
+	?>
 
 
         <p class="pull-right visible-xs">
@@ -17,7 +49,7 @@
                 </a>
                 <a href="lista.php" role="button" class="btn btn-primary">
                     <span class="glyphicon glyphicon-list"></span>
-                    <br>Przeglądaj 
+                    <br>Zestawy 
                 </a>
                 <a href="userList.php" role="button" class="btn btn-primary">
                     <span class="glyphicon glyphicon-user"></span>

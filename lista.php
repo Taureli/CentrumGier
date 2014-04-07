@@ -36,7 +36,12 @@ include"service/check_login.php";
                         require('lista/list.php');
                         $baza = new Baza($dbms, $host, $database, $port, $username, $password);
                         
-                        $baza->pack_all_list();
+						$id = $_SESSION['id_user'];
+						
+						if (isset($_GET['me'])) {
+							$baza->pack_my_list($id);
+						} else
+							$baza->pack_all_list();
                         
                         ?>
 

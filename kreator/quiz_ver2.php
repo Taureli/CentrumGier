@@ -50,4 +50,4 @@ fclose($handle);
 $p_id = $_GET['p_id'];
 $sql = "UPDATE pack SET file='$filename1',hidden=0,make_date='$cur_date' WHERE id_pack='$p_id'";
 $result = mysql_query($sql, $conn) or die(mysql_error());
-header("location: ../index.php?er=1");
+header("location: ../index.php?er=12");

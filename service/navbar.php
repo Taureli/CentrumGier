@@ -23,7 +23,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Zestawy <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="kreator.php">Twoje zestawy</a></li>
+                        <li><a href="lista.php?me=true">Twoje zestawy</a></li>
                         <li><a href="kreator.php">Zestawy obserwowanych</a></li>
                         <li><a href="lista.php">Wszystkie zestawy</a></li>
                     </ul>
@@ -45,7 +45,7 @@
                         <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="index.php">Panel główny</a></li>
-                        <li><a href="index.php">Twój profil</a></li>
+                        <li><a href="profil.php">Twój profil</a></li>
                         <li><a href="index.php">Ustawienia</a></li>
                         <li><a href="service/logout.php">Wyloguj</a></li>
                     </ul>

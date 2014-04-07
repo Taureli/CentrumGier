@@ -82,7 +82,7 @@ class Baza {
             '<td>' . $this->getPacks($row['id_user']) . '</td>' .
             '<td>
                                     <div class="btn-group">
-                                        <a class="btn btn-primary" href="#" title="Profil autora"><i class="glyphicon glyphicon-user"></i></a>
+                                        <a class="btn btn-primary" href="profil.php?id=' . $row['id_user'] . '" title="Profil autora"><i class="glyphicon glyphicon-user"></i></a>
                                     </div>
                                 </td>
                             </tr>';

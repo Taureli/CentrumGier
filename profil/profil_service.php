@@ -12,10 +12,25 @@ class Baza {
         }
     }
 
-    function pack_list() {
+	function info($id_user) {
 
-        $id_user = $_SESSION["id_user"];
-        $stmt = $this->pdo->query("SELECT * FROM pack WHERE id_user='$id_user'");
+        $sql = "SELECT * FROM user WHERE id_user='$id_user'";
+        $result = mysql_query($sql);
+
+        while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+            echo '<h2>' . $row['name'] . ' ' . $row['surname'] . '
+			<a href="#" role="button" class="btn btn-xs btn-primary">
+            <span class="glyphicon glyphicon-eye-open"></span>
+                </a></h2>';
+			echo '<h4>' . $row['profession'] . '</h4>';
+			echo '<h5>' . $row['info'] . '</h5>';
+        }
+    }
+	
+	    function pack_list() {
+
+        $id_user = $_GET['id'];
+        $stmt = $this->pdo->query("SELECT * FROM pack WHERE id_user='$id_user' && hidden=false");
 
             echo'<table class="table table-striped">
                         <tr>
@@ -36,8 +51,6 @@ class Baza {
                 . '<div class="btn-group">'.
                     "<a class='btn btn-xs btn-primary' href=pack.php?id=$id title='Zobacz szczegóły'><i class='glyphicon glyphicon-list'></i></a>".
                     '<a class="btn btn-xs btn-primary" href="download.php?id=' . $row['id_pack'] . '" title="Pobierz"><i class="glyphicon glyphicon-download"></i></a>
-                     <a class="btn btn-xs btn-primary" href="#" title="Edytuj"><i class="glyphicon glyphicon-edit"></i></a>
-                     <a class="btn btn-xs btn-danger" href="deletePack.php?id=' . $row['id_pack'] . '" title="Usuń"><i class="glyphicon glyphicon-remove"></i></a>
                 </div>
                 </td>' .
                 '</tr>';
@@ -46,66 +59,11 @@ class Baza {
 
             echo' </table>';
             //echo '<br><div class="well well-sm"><h5>Nic nie znaleziono! Przejdź do kreatora i stwórz swój pierwszy zestaw pytań!</h5></div>';
-    }
-
-    function stats() {
-        echo '<table class="table table-condensed table-striped">
-                        <tr>
-                            <td>Dodane zestawy: <span class="badge">';
-
-        $id_user = $_SESSION["id_user"];
-
-        $num_stmt = $this->pdo->query("SELECT count(name) FROM pack WHERE id_user='$id_user'");
-        $num_packs = $num_stmt->fetch(PDO::FETCH_NUM);
-        echo $num_packs[0];
-
-        echo '</span></td>
-                        </tr>
-                        <tr>
-                            <td>Ilość pobrań: <span class="badge">';
-
-        if ($num_packs[0] != 0) {
-            $down_stmt = $this->pdo->query("SELECT SUM(downloads) FROM pack WHERE id_user='$id_user'");
-            $down_packs = $down_stmt->fetch(PDO::FETCH_NUM);
-            echo $down_packs[0];
-        } else {
-            echo '0';
-        }
-
-        echo'</span></td>
-                        </tr>
-                        <tr>
-                            <td>Średnia ocena: <span class="badge">';
-
-        if ($num_packs[0] != 0) {
-            $avg_stmt = $this->pdo->query("SELECT ROUND(AVG(rating),1) FROM pack WHERE id_user='$id_user'");
-            $avg_packs = $avg_stmt->fetch(PDO::FETCH_NUM);
-            echo $avg_packs[0];
-        } else {
-            echo '0';
-        }
-
-        echo '</span></td>
-                        </tr>
-                        <tr>
-                            <td>Najwyższa ocena: <span class="badge">';
-
-        if ($num_packs[0] != 0) {
-            $top_stmt = $this->pdo->query("SELECT MAX(rating) FROM pack WHERE id_user='$id_user'");
-            $top_packs = $top_stmt->fetch(PDO::FETCH_NUM);
-            echo $top_packs[0];
-        } else {
-            echo '0';
-        }
-
-        echo '</span></td>
-                        </tr>
-                    </table>';
-    }
-
-    function pack_downl() {
-        $id_user = $_SESSION["id_user"];
-        $stmt = $this->pdo->query("SELECT id_pack, name, game, subject, file FROM pack WHERE id_user='$id_user' ORDER BY downloads DESC LIMIT 0, 3");
+		}
+		
+	function pack_downl() {
+        $id_user = $_GET['id'];
+        $stmt = $this->pdo->query("SELECT id_pack, name, game, subject, file FROM pack WHERE id_user='$id_user' && hidden=false ORDER BY downloads DESC LIMIT 0, 3");
         echo ' <table class="table">
                         <tr>
                             <th>Nazwa</th>
@@ -125,8 +83,8 @@ class Baza {
     }
 
     function pack_top() {
-        $id_user = $_SESSION["id_user"];
-        $stmt = $this->pdo->query("SELECT id_pack, name, game, subject, file FROM pack WHERE id_user='$id_user' ORDER BY rating DESC LIMIT 0, 3");
+        $id_user = $_GET['id'];
+        $stmt = $this->pdo->query("SELECT id_pack, name, game, subject, file FROM pack WHERE id_user='$id_user' && hidden=false ORDER BY rating DESC LIMIT 0, 3");
         echo '<table class="table">
                         <tr>
                             <th>Nazwa</th>
@@ -144,5 +102,6 @@ class Baza {
         }
         echo '</table>';
     }
-
+	
 }
+?>

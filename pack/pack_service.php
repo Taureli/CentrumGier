@@ -60,7 +60,7 @@ class Baza {
         echo '<ul class="list-group">
                 <li class="list-group-item">
                     <span class="badge">' . $this->list_user($result[0]) . '
-                    <a href="#"> <span class="glyphicon glyphicon-user"> </span> </a>    
+                    <a href="profil.php?id=' . $result[0] . '"> <span class="glyphicon glyphicon-user"> </span> </a>    
                     </span>
                     Autor:
                 </li>
