@@ -17,7 +17,7 @@
                         <li><a>Wybierz grę:</ap></li>
                         <li class="divider"/>
                         <li><a href="kreator.php?game=quiz">Quiz</a></li>
-                        <li><a href="kreator.php?game=memo">Memory</a></li>
+                        <li><a href="kreator.php?game=race">Wyścigi</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

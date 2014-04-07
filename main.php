@@ -19,13 +19,9 @@
                     <span class="glyphicon glyphicon-list"></span>
                     <br>Przeglądaj 
                 </a>
-                <a href="szukaj.php" role="button" class="btn btn-primary">
+                <a href="userList.php" role="button" class="btn btn-primary">
                     <span class="glyphicon glyphicon-user"></span>
                     <br>Użytkownicy
-                </a>
-                <a href="wiadomosci.php" role="button" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-envelope"></span>
-                    <br>Wiadomości
                 </a>
                 <a href="profil.php" role="button" class="btn btn-primary">
                     <span class="glyphicon glyphicon-eye-open"></span>
@@ -49,6 +45,9 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">Twoje statystyki:</div>';
         $baza->stats();
+		echo '</div>
+			<div class="panel panel-info">
+                    <div class="panel-heading">Aktywność obserwowanych:</div>';
         echo '</div>
             </div>
             <div class="col-7 col-sm-7 col-lg-7">

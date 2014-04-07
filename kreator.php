@@ -37,7 +37,7 @@ include"service/check_login.php";
                             . "</div>"
                             . "<div class='well' style='max-width: 450px; margin: 0 auto 10px;'>"
                             . "<a href='kreator.php?game=quiz' type='button' class='btn btn-primary btn-lg btn-block'>Quiz</a>"
-                            . "<a href='kreator.php?game=memo' type='button' class='btn btn-primary btn-lg btn-block'>Memory</a>"
+                            . "<a href='kreator.php?game=race' type='button' class='btn btn-primary btn-lg btn-block'>Wyścigi</a>"
                             . "</div>";
                         } else {
                             switch ($_GET['game']) {
@@ -52,6 +52,14 @@ include"service/check_login.php";
                                 case 'memo':
                                     include "kreator/memo_form.php";
                                     break;
+								case 'race':
+                                    if (!isset($_GET['p_id'])) {
+                                        include "kreator/race_form.php";
+                                        break;
+                                    } else {
+                                        include "kreator/race_form2.php";
+                                        break;
+                                    }
                             }
                         }
                         ?>
