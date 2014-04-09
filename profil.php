@@ -1,6 +1,10 @@
 <?php
 session_start();
 include"service/check_login.php";
+if (!isset($_GET['id'])) {
+	header("Location: profil.php?id=" . $_SESSION['id_user']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +32,6 @@ include"service/check_login.php";
 			    <br>
 			
 			    <?php
-				
-				if (!isset($_GET['id'])) {
-					header("Location: profil.php?id=" . $_SESSION['id_user']);
-				}
 				
                 require('service/mysql_config.php');
                 require('profil/profil_service.php');

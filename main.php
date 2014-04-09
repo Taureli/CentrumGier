@@ -36,9 +36,6 @@
 	?>
 
 
-        <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-        </p>
         <div class="jumbotron" style="background-color: #BAE0FF;">
             <h2><?php echo $_SESSION['name'].' '.$_SESSION['surname']; ?></h2>
             <p>
@@ -59,7 +56,7 @@
                     <span class="glyphicon glyphicon-eye-open"></span>
                     <br>Obserwowani
                 </a>
-                <a href="profil.php" role="button" class="btn btn-primary">
+                <a href="settings.php" role="button" class="btn btn-primary">
                     <span class="glyphicon glyphicon-cog"></span>
                     <br>Ustawienia
                 </a>

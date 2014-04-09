@@ -25,11 +25,9 @@ require('service/mysql_config.php');
 		
 			$directory = 'packs/';
 			
-			if(unlink($directory.$file)){
-				if(unlink($directory.$descr)){
-					$sql = "DELETE FROM pack WHERE id_pack='$id'";
-					$result = mysql_query($sql, $conn) or die(mysql_error());
-					header("Location: index.php?er=11");
-				}
-			}
+			unlink($directory.$file);
+			unlink($directory.$descr);
+			$sql = "DELETE FROM pack WHERE id_pack='$id'";
+			$result = mysql_query($sql, $conn) or die(mysql_error());
+			header("Location: index.php?er=11");
 		}

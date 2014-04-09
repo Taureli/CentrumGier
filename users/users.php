@@ -21,7 +21,7 @@ class Baza {
        // $sql = "SELECT count(id_pack) FROM pack WHERE id_user='$id_user'";
        // $result = mysql_query($sql, $conn) or die(mysql_error());
         
-        $sql = $this->pdo->query("SELECT count(id_pack) FROM pack WHERE id_user='$id_user'");
+        $sql = $this->pdo->query("SELECT count(id_pack) FROM pack WHERE id_user='$id_user' && hidden=false");
         $result = $sql->fetch(PDO::FETCH_NUM);
         
         return $result[0];

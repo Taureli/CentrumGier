@@ -147,7 +147,7 @@ class Baza {
         }
         $left_rec = $rec_count - ($page * $rec_limit);
 
-        $sql = "SELECT * FROM pack WHERE id_user=$idd && hidden=false ORDER BY name ASC LIMIT $offset, $rec_limit";
+        $sql = "SELECT * FROM pack WHERE id_user=$idd ORDER BY name ASC LIMIT $offset, $rec_limit";
 
         $retval = mysql_query($sql, $conn);
         if (!$retval) {
@@ -180,7 +180,7 @@ class Baza {
                                     <div class="btn-group">'.
                                         "<a class='btn btn-primary' href=pack.php?id=$id title='Zobacz szczegóły'><i class='glyphicon glyphicon-list'></i></a>".
                                         '<a class="btn btn-primary" href="download.php?id=' . $row['id_pack'] . '" title="Pobierz"><i class="glyphicon glyphicon-download"></i></a>
-                                        <a class="btn btn-primary" href="profil.php?id=' . $row['id_user'] . '" title="Profil autora"><i class="glyphicon glyphicon-user"></i></a>
+                                        <a class="btn btn-danger" href="deletePack.php?id=' . $row['id_pack'] . '" title="Usuń"><i class="glyphicon glyphicon-remove"></i></a>
                                     </div>
                                 </td>
                             </tr>';

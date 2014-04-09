@@ -46,7 +46,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="index.php">Panel główny</a></li>
                         <li><a href="profil.php">Twój profil</a></li>
-                        <li><a href="index.php">Ustawienia</a></li>
+                        <li><a href="settings.php">Ustawienia</a></li>
                         <li><a href="service/logout.php">Wyloguj</a></li>
                     </ul>
                 </li>
