@@ -16,11 +16,11 @@ if ($_GET["email"] && $_GET["password"] && $_GET["name"] && $_GET["surname"]) {
         exit(header("location: ../index.php?er=6"));
     }
     
-    if(strlen($_GET["name"]) < 3){  //długość imienia
+    if(strlen($_GET["name"]) < 2){  //długość imienia
         exit(header("location: ../index.php?er=7"));
     }
     
-    if(strlen($_GET["surname"]) < 3){  //długość nazwiska
+    if(strlen($_GET["surname"]) < 2){  //długość nazwiska
         exit(header("location: ../index.php?er=8"));
     }
     

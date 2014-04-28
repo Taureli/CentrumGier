@@ -1,3 +1,8 @@
+<div class="alert alert-warning alert-dismissable">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<strong>Zapisano wersję roboczą!</strong>
+</div>
+
 <h2>Tworzenie zestawu - Krok 2</h2>
 <h4>Nazwa zestawu: 
     <?php
