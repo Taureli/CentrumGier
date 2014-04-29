@@ -36,7 +36,12 @@ include"service/check_login.php";
                         require('users/users.php');
                         $baza = new Baza($dbms, $host, $database, $port, $username, $password);
                         
-                        $baza->user_all_list();
+						$id = $_SESSION['id_user'];
+						
+						if (isset($_GET['watch']))
+							$baza->user_watch_list($id);
+						else
+							$baza->user_all_list();
                         
                         ?>
 

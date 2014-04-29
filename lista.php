@@ -40,7 +40,9 @@ include"service/check_login.php";
 						
 						if (isset($_GET['me'])) {
 							$baza->pack_my_list($id);
-						} else
+						} else if(isset($_GET['watch']))
+							$baza->pack_watch_list($id);
+						else
 							$baza->pack_all_list();
                         
                         ?>

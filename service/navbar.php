@@ -23,15 +23,15 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Zestawy <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="lista.php?me=true">Twoje zestawy</a></li>
-                        <li><a href="kreator.php">Zestawy obserwowanych</a></li>
+                        <li><a href="lista.php?me=t">Twoje zestawy</a></li>
+                        <li><a href="lista.php?watch=t">Zestawy obserwowanych</a></li>
                         <li><a href="lista.php">Wszystkie zestawy</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Użytkownicy <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="kreator.php">Obserwowani</a></li>
+                        <li><a href="userList.php?watch=t">Obserwowani</a></li>
                         <li><a href="userList.php">Wszyscy użytkownicy</a></li>
                     </ul>
                 </li>

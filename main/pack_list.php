@@ -144,5 +144,29 @@ class Baza {
         }
         echo '</table>';
     }
+	
+	function watch($idd) {
+		include 'service/mysql_config.php';
+		$conn = mysql_connect($host, $username, $password) or die(mysql_error());
+		mysql_select_db($database, $conn);
+
+        $id_user = $_SESSION["id_user"];
+        $stmt = $this->pdo->query("SELECT id_pack, id_user, name FROM pack WHERE id_user IN (SELECT kogo FROM watch WHERE kto='$idd') ORDER BY make_date DESC LIMIT 0, 3");
+        echo ' <table class="table table-condensed table-striped">';
+        foreach ($stmt as $row) {
+            $id = $row['id_pack'];
+			$id_user = $row['id_user'];
+			
+			$sql = "SELECT name, surname FROM user WHERE id_user='$id_user'";
+			$result = mysql_fetch_row(mysql_query($sql));
+			
+            echo '<tr>' .
+			"<td><a href=profil.php?id=$id_user><span class='glyphicon glyphicon-user'> </span></a> " . $result[0] . " " . $result[1] . ":</td>" .
+			'</tr><tr>' .
+            "<td><a href=pack.php?id=$id>" . $row['name'] . '</a></td>' .
+            '</tr>';
+        }
+        echo '</table>';
+    }
 
 }

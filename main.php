@@ -52,7 +52,7 @@
                     <span class="glyphicon glyphicon-user"></span>
                     <br>Użytkownicy
                 </a>
-                <a href="profil.php" role="button" class="btn btn-primary">
+                <a href="userList.php?watch=t" role="button" class="btn btn-primary">
                     <span class="glyphicon glyphicon-eye-open"></span>
                     <br>Obserwowani
                 </a>
@@ -65,6 +65,7 @@
         </div>
 
         <?php
+		$id = $_SESSION['id_user'];
         require('service/mysql_config.php');
         require('main/pack_list.php');
         $baza = new Baza($dbms, $host, $database, $port, $username, $password);
@@ -77,6 +78,7 @@
 		echo '</div>
 			<div class="panel panel-info">
                     <div class="panel-heading">Aktywność obserwowanych:</div>';
+		$baza->watch($id);
         echo '</div>
             </div>
             <div class="col-7 col-sm-7 col-lg-7">

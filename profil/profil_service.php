@@ -16,12 +16,26 @@ class Baza {
 
         $sql = "SELECT * FROM user WHERE id_user='$id_user'";
         $result = mysql_query($sql);
+		
+		$id = $_SESSION['id_user'];
+		$sql2 = "SELECT kogo FROM watch WHERE kto='$id' AND kogo='$id_user'";
+		$watch = mysql_fetch_row(mysql_query($sql2));
 
         while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-            echo '<h2>' . $row['name'] . ' ' . $row['surname'] . '
-			<a href="#" role="button" class="btn btn-xs btn-primary">
-            <span class="glyphicon glyphicon-eye-open"></span>
+            echo '<h2>' . $row['name'] . ' ' . $row['surname'];
+			if($id_user == $_SESSION['id_user']){
+				echo '</a></h2>';
+			} else if($watch[0] != NULL) {
+				echo '
+				<a href="profil/unfollow.php?id=' . $id_user . '" role="button" class="btn btn-xs btn-primary">
+				<span class="glyphicon glyphicon-eye-close"></span> Nie obserwuj
                 </a></h2>';
+			} else {
+				echo '
+				<a href="profil/follow.php?id=' . $id_user . '" role="button" class="btn btn-xs btn-primary">
+				<span class="glyphicon glyphicon-eye-open"></span> Obserwuj
+                </a></h2>';
+			}
 			echo '<h4>' . $row['profession'] . '</h4>';
 			echo '<h5>' . $row['info'] . '</h5>';
         }
