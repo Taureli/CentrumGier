@@ -13,12 +13,7 @@
         <br>
 
         <h4>Wybierz kategorię z której będą pytania:</h4>
-        <select class="form-control" name="subject" id="Subject">
-            <option>Język Angielski</option>
-            <option>Język Polski</option>
-            <option>Matematyka</option>
-            <option>Przyroda</option>
-        </select>
+        <input type="text" class="form-control" name="subject" id="Subject" placeholder="Kategoria">
 
         <br>
 

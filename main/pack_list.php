@@ -36,7 +36,7 @@ class Baza {
                 . '<div class="btn-group">'.
                     "<a class='btn btn-xs btn-primary' href=pack.php?id=$id title='Zobacz szczegóły'><i class='glyphicon glyphicon-list'></i></a>".
                     '<a class="btn btn-xs btn-primary" href="download.php?id=' . $row['id_pack'] . '" title="Pobierz"><i class="glyphicon glyphicon-download"></i></a>
-                     <a class="btn btn-xs btn-primary" href="#" title="Edytuj"><i class="glyphicon glyphicon-edit"></i></a>
+                     <a class="btn btn-xs btn-primary" href="edit.php?id=' . $row['id_pack'] . '" title="Edytuj"><i class="glyphicon glyphicon-edit"></i></a>
                      <a class="btn btn-xs btn-danger" href="deletePack.php?id=' . $row['id_pack'] . '" title="Usuń"><i class="glyphicon glyphicon-remove"></i></a>
                 </div>
                 </td>' .
