@@ -78,7 +78,7 @@ class Baza {
                             <td>Średnia ocena: <span class="badge">';
 
         if ($num_packs[0] != 0) {
-            $avg_stmt = $this->pdo->query("SELECT ROUND(AVG(rating),1) FROM pack WHERE id_user='$id_user'");
+            $avg_stmt = $this->pdo->query("SELECT ROUND(AVG(rating),1) FROM pack WHERE id_user='$id_user' AND rating>0");
             $avg_packs = $avg_stmt->fetch(PDO::FETCH_NUM);
             echo $avg_packs[0];
         } else {

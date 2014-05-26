@@ -56,6 +56,23 @@ if (!isset($_GET['id']))
                 //DOWNLOAD BUTTON
                 echo "<a href=download.php?id=$id class='btn btn-lg btn-success'>Pobierz zestaw &nbsp;<span class='glyphicon glyphicon-download'></span></a>";
                 
+                //OCENIANIE
+                echo "
+                <br><br>
+                <div class='btn-group'>
+                  <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>
+                    Oceń zestaw <span class='caret'></span>
+                  </button>
+                  <ul class='dropdown-menu' role='menu'>
+                    <li><a href='pack/rate.php?id=$id&star=1'><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star-empty'></span><span class='glyphicon glyphicon-star-empty'></span><span class='glyphicon glyphicon-star-empty'></span><span class='glyphicon glyphicon-star-empty'></span></a></li>
+                    <li><a href='pack/rate.php?id=$id&star=2'><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star-empty'></span><span class='glyphicon glyphicon-star-empty'></span><span class='glyphicon glyphicon-star-empty'></span></a></li>
+                    <li><a href='pack/rate.php?id=$id&star=3'><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star-empty'></span><span class='glyphicon glyphicon-star-empty'></span></a></li>
+                    <li><a href='pack/rate.php?id=$id&star=4'><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star-empty'></span></a></li>
+                    <li><a href='pack/rate.php?id=$id&star=5'><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span></a></li>
+                  </ul>
+                </div>
+                ";
+
                 //INFO
                 echo '<br><br>';
                 $baza->info($id);
